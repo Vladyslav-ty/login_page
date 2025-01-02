@@ -212,3 +212,12 @@ body{
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.header-nav__link {
+    text-decoration: none;
+    color: inherit; /* Наследовать цвет родительского элемента */
+}
+
+.header-nav__link:hover {
+    text-decoration: underline; /* Добавить подчеркивание при наведении */
+}
