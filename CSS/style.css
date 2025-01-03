@@ -1,5 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
+#snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Чтобы снежинки не блокировали клики */
+    z-index: 9999; /* Поверх всех окон */
+    overflow: hidden; /* Чтобы снежинки не вылезали за экран */
+}
+
+.snowflake {
+    position: absolute;
+    top: -50px; /* Начало падения (за экраном сверху) */
+    color: white;
+    font-size: 10px; /* Размер снежинки */
+    opacity: 0.8;
+    user-select: none; /* Отключить выделение снежинок */
+    animation: fall 10s linear infinite;
+    animation-fill-mode: forwards; /* Сохраняет позицию после завершения анимации */
+}
+
+/* Анимация падения */
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg); /* Снежинка вращается */
+    }
+}
+
+#wind-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998; /* Чуть ниже снега */
+    overflow: hidden;
+}
+
+#wind-container .wind {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    animation: windEffect 3s ease-out;
+}
+
+@keyframes windEffect {
+    0% {
+        transform: scale(0) translateY(0);
+    }
+    50% {
+        transform: scale(1.2) translateY(-50px);
+    }
+    100% {
+        transform: scale(0) translateY(-100px);
+    }
+}
+
 *{
     margin: 0;
     padding: 0;
